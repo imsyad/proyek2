@@ -45,7 +45,6 @@ class PageFooter extends React.Component{
                        </Paragraph>
                     </Box>
                 </Box>
-
             </Box>
         );
     }

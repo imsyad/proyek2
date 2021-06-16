@@ -1,16 +1,16 @@
 import React from 'react';
-import './../styles/PageHeaderStyle.css';
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
+import { Link } from '@reach/router';
 
 
-class PageHeader extends React.Component{
+class PageHeader extends React.PureComponent{
 
     render(){
-
+                
         return(
+            
             <Box
                 background={{color:'whitesmoke'}}
-                fill="horizontal"
                 height="70px"
             >
                 <Box 
@@ -30,14 +30,14 @@ class PageHeader extends React.Component{
                         direction="row"
                         gap="40px"
                     >
-                        <Box align="center" width="100px" className="link">
-                            <a href="#">Beranda</a>
+                        <Box align="center" width="120px">
+                            <Link to="/">Beranda</Link>{" "}
                         </Box>
-                        <Box align="center" width="100px" className="link">
-                            <a href="#">Aplikasi</a>
+                        <Box align="center" width="120px">
+                            <Link to="/">Aplikasi</Link>{" "}
                         </Box>
-                        <Box align="center" width="100px" className="link">
-                            <a href="#">Tentang Kami</a>
+                        <Box align="center" width="120px">
+                            <Link to="/">Tentang Kami</Link>{" "}
                         </Box>
                     </Box>
                 </Box>
