@@ -1,10 +1,29 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Box, Heading, Image, Paragraph } from 'grommet';
+import { Box, Grommet, Heading, Image, Paragraph, Text } from 'grommet';
+import { Link } from '@reach/router';
+import { LinkNext } from 'grommet-icons'
 import Page from '../components/page';
-import logo from '../img/APRIL_PC 2880x1800.jpg';
+import header_img from '../img/header_beranda.jpg';
+import AnalyzeButton from '../components/AnalyzeButton';
 
-console.log(logo);
+console.log(header_img);
+
+const secondFont = {
+    global: {
+        font: {
+            family: "Consolas",
+            size: "25px",
+        }      
+    }
+  };
+
+const linkStyle = {
+    textDecoration: "none",
+    font: {
+        color: "accent-4",
+    }
+};
 
 class Home extends React.PureComponent{
 
@@ -22,8 +41,11 @@ class Home extends React.PureComponent{
                 >
                     <Image
                         fit="cover"
-                        src={logo}
+                        src={header_img}
                     />
+                </Box>
+                <Box justify="center" direction="row-responsive">
+                    <AnalyzeButton justify="center"/>
                 </Box>
                 <Box 
                     direction="column"
@@ -40,7 +62,9 @@ class Home extends React.PureComponent{
                         <Box
                             width="30%"
                         >
-                           <Heading margin="none" level="2">Gambaran Umum Gagal Jantung</Heading>
+                            <Grommet theme={secondFont}>
+                                <Heading margin="none" level="2">Gambaran Umum Gagal Jantung</Heading>
+                            </Grommet>
                         </Box>
                         <Box>
                             <Paragraph
@@ -61,7 +85,9 @@ class Home extends React.PureComponent{
                         <Box
                             width="30%"
                         >
-                            <Heading margin="none" level="2">Gejala Gagal Jantung</Heading>
+                            <Grommet theme={secondFont}>
+                                <Heading margin="none" level="2">Gejala Gagal Jantung</Heading>
+                            </Grommet>
                         </Box>
                         <Box>
                             <Paragraph
@@ -82,7 +108,9 @@ class Home extends React.PureComponent{
                         <Box
                             width="30%"
                         >
-                           <Heading margin="none" level="2">Perawatan</Heading>
+                            <Grommet theme={secondFont}>
+                                <Heading margin="none" level="2">Perawatan</Heading>
+                            </Grommet>
                         </Box>
                         <Box>
                             <Paragraph
@@ -103,7 +131,9 @@ class Home extends React.PureComponent{
                         <Box
                             width="30%"
                         >
-                           <Heading margin="none" level="2">2A - Kelompok 4</Heading>
+                            <Grommet theme={secondFont}>
+                            <Heading margin="none" level="2">2A - Kelompok 4</Heading>
+                            </Grommet>
                         </Box>
                         <Box>
                             <Paragraph
@@ -113,6 +143,13 @@ class Home extends React.PureComponent{
                             >
                                 Kelompok 4 2A adalah kelompok mata kuliah Proyek 2 JTK Polban tahun 2021 dan kelompok ini terdiri dari enam orang anggota. Kelompok 4 2A berfokus pada pembuatan aplikasi saintifik: prediksi gagal jantung yang membawa kematian.
                             </Paragraph>
+                            <Link
+                                to="/about"
+                                style={linkStyle}
+                            >
+                                <Text weight="bold" color="brand">Cari tahu tentang kami{" "}
+                                <LinkNext color="black" size="small"/></Text>
+                            </Link>
                         </Box>
                     </Box>
                     <Box
@@ -124,7 +161,9 @@ class Home extends React.PureComponent{
                         <Box
                             width="30%"
                         >
-                           <Heading margin="none" level="2">Model Dengan Akurasi Lebih Dari 80%</Heading>
+                            <Grommet theme={secondFont}>
+                                <Heading margin="none" level="2">Model Dengan Akurasi 80%+</Heading>
+                            </Grommet>
                         </Box>
                         <Box>
                             <Paragraph
@@ -134,6 +173,13 @@ class Home extends React.PureComponent{
                             >
                                 Aplikasi ini menggunakan 12 fitur yang dapat digunakan untuk memprediksi gagal jantung yang membawa kematian, dan model prediksi mempunyai akurasi hingga lebih dari 80%.
                             </Paragraph>
+                            <Link
+                                to="/about"
+                                style={linkStyle}
+                            >
+                                <Text weight="bold" color="brand">Cari tahu tentang kami{" "}
+                                <LinkNext color="black" size="small"/></Text>
+                            </Link>
                         </Box>
                     </Box>
                 </Box>

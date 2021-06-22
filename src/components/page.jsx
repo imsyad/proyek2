@@ -11,7 +11,7 @@ class Page extends React.PureComponent{
             <Box
                 margin="0"
                 >
-                <PageHeader/>              
+                <PageHeader/>        
                 {this.props.children}
                 <PageFooter/>
             </Box>

@@ -1,7 +1,22 @@
 import React from 'react';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box, Image, Grommet} from 'grommet';
 import { Link } from '@reach/router';
+import logo from '../img/proyek_logo.png';
 
+
+const secondFont = {
+    global: {
+        font: {
+            family: "Consolas",
+            size: "25px"
+        }
+    }
+  };
+
+const linkStyle = {
+    textDecoration: "none",
+    color: "black"
+};
 
 class PageHeader extends React.PureComponent{
 
@@ -10,7 +25,7 @@ class PageHeader extends React.PureComponent{
         return(
             
             <Box
-                background={{color:'whitesmoke'}}
+                background={{color:'white'}}
                 height="70px"
             >
                 <Box 
@@ -18,28 +33,35 @@ class PageHeader extends React.PureComponent{
                     gap="between"
                     height="100%"
                     justify="between"
-                    margin={{horizontal:'40px'}}
+                    margin={{horizontal:'30px'}}
                 >
                     <Box
                         justify="center"
                     >
-                        /*LOGO*/
+                        <Image
+                            fit="contain"
+                            alignSelf="start"
+                            src={logo}
+                        />
                     </Box>
-                    <Box
-                        align="center"
-                        direction="row"
-                        gap="40px"
-                    >
-                        <Box align="center" width="120px">
-                            <Link to="/">Beranda</Link>{" "}
+                    <Grommet theme={secondFont}>
+                        <Box
+                            align="center"
+                            direction="row"
+                            gap="40px"
+                            margin={{vertical: '22px'}}
+                        >
+                            <Box align="center" width="120px">
+                                <Link to="/" style={linkStyle}>Beranda</Link>{" "}
+                            </Box>
+                            <Box align="center" width="120px">
+                                <Link to="/" style={linkStyle}>Aplikasi</Link>{" "}
+                            </Box>
+                            <Box align="center" width="180px">
+                                <Link to="/about" style={linkStyle}>Tentang Kami</Link>{" "}
+                            </Box>
                         </Box>
-                        <Box align="center" width="120px">
-                            <Link to="/">Aplikasi</Link>{" "}
-                        </Box>
-                        <Box align="center" width="120px">
-                            <Link to="/">Tentang Kami</Link>{" "}
-                        </Box>
-                    </Box>
+                    </Grommet>
                 </Box>
             </Box>
         );

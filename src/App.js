@@ -1,6 +1,7 @@
 import { Router } from '@reach/router';
 import { Grommet, Text } from 'grommet';
 import Loadable from 'react-loadable';
+import './assets/fonts/fonts.css';
 
 const theme = {
   global: {
@@ -18,7 +19,7 @@ const theme = {
     },
     font: {
       family:
-        '-apple-system,\n         BlinkMacSystemFont, \n         "Segoe UI", \n         Roboto, \n         Oxygen, \n         Ubuntu, \n         Cantarell, \n         "Fira Sans", \n         "Droid Sans",  \n         "Helvetica Neue", \n         Arial, sans-serif,  \n         "Apple Color Emoji", \n         "Segoe UI Emoji", \n         "Segoe UI Symbol"',
+        'OpenSans, \n         -apple-system,\n         BlinkMacSystemFont, \n         "Segoe UI", \n         Roboto, \n         Oxygen, \n         Ubuntu, \n         Cantarell, \n         "Fira Sans", \n         "Droid Sans",  \n         "Helvetica Neue", \n         Arial, sans-serif,  \n         "Apple Color Emoji", \n         "Segoe UI Emoji", \n         "Segoe UI Symbol"',
     },
   },
 };
@@ -32,6 +33,10 @@ const Home = Loadable({
   loader: () => import('./page/home'),
   loading(){return <div>loading...</div>}
 });
+const About = Loadable({
+  loader: () => import('./page/about'),
+  loading(){return <div>loading...</div>}
+});
 
 function App() {
   return (
@@ -42,6 +47,7 @@ function App() {
       <Router primary={false} component={RouterComponent}>
         <NotFound default/>
         <Home path="/" />
+        <About path="about"/>
       </Router>
     </Grommet>
   );
