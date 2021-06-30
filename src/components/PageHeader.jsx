@@ -56,7 +56,7 @@ class PageHeader extends React.PureComponent{
                                 <Link to="/" style={linkStyle}>Beranda</Link>{" "}
                             </Box>
                             <Box align="center" width="140px">
-                                <Link to="/" style={linkStyle}>Aplikasi</Link>{" "}
+                                <Link to="/aplikasi" style={linkStyle}>Aplikasi</Link>{" "}
                             </Box>
                             <Box align="center" width="140px">
                                 <Link to="/tentang-kami" style={linkStyle}>Tentang Kami</Link>{" "}

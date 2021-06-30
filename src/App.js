@@ -28,15 +28,21 @@ function RouterComponent({ children }) {
   return <>{children}</>;
 }
 
+const Loading = () => <div>loading...</div>
 const NotFound = () => <Text>404. Content Not Found.</Text>;
 const Home = Loadable({
   loader: () => import('./page/home'),
-  loading(){return <div>loading...</div>}
+  loading: () => Loading
 });
 const About = Loadable({
   loader: () => import('./page/about'),
-  loading(){return <div>loading...</div>}
+  loading:() => Loading
 });
+const Application = Loadable({
+  loader:() => import('./page/application'),
+  loading:() => Loading
+});
+
 
 function App() {
   return (
@@ -47,7 +53,8 @@ function App() {
       <Router primary={false} component={RouterComponent}>
         <NotFound default/>
         <Home path="/" />
-        <About path="about"/>
+        <About path="/tentang-kami"/>
+        <Application path="/aplikasi" />
       </Router>
     </Grommet>
   );
