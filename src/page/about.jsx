@@ -39,7 +39,7 @@ class About extends React.PureComponent{
             <Page>
                 <Helmet>
                     <meta name="viewport" content="width=device-width, user-scalable=no" />
-                    <title>About Us</title>
+                    <title>Tentang Kami</title>
                 </Helmet>
                 <Box
                     height={{max:"400px"}}

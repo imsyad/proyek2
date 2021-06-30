@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, Grommet, Heading, Image, Paragraph, Text } from 'grommet';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import { LinkNext } from 'grommet-icons'
 import Page from '../components/page';
 import header_img from '../img/header_beranda.jpg';
@@ -13,7 +13,7 @@ const secondFont = {
     global: {
         font: {
             family: "Consolas",
-            size: "25px",
+            size: "24px",
         }      
     }
   };
@@ -44,14 +44,16 @@ class Home extends React.PureComponent{
                         src={header_img}
                     />
                 </Box>
-                <Box justify="center" direction="row-responsive">
-                    <AnalyzeButton justify="center"/>
+                <Box 
+                    margin={{bottom:"64px"}}
+                    justify="center" direction="row-responsive">
+                    <AnalyzeButton onClick={()=>{navigate('/aplikasi')}} justify="center" label="Analisis Sekarang!"/>
                 </Box>
                 <Box 
                     direction="column"
                     fill="horizontal"
                     gap="40px"
-                    pad={{bottom:"64px", horizontal:"40px"}}
+                    pad={{horizontal:"40px"}}
                 >
                     <Box
                         gap="24px"
@@ -135,7 +137,9 @@ class Home extends React.PureComponent{
                             <Heading margin="none" level="2">2A - Kelompok 4</Heading>
                             </Grommet>
                         </Box>
-                        <Box>
+                        <Box
+                            gap = "14px"
+                        >
                             <Paragraph
                                 margin="0"
                                 responsive
@@ -144,7 +148,7 @@ class Home extends React.PureComponent{
                                 Kelompok 4 2A adalah kelompok mata kuliah Proyek 2 JTK Polban tahun 2021 dan kelompok ini terdiri dari enam orang anggota. Kelompok 4 2A berfokus pada pembuatan aplikasi saintifik: prediksi gagal jantung yang membawa kematian.
                             </Paragraph>
                             <Link
-                                to="/about"
+                                to="/tentang-kami"
                                 style={linkStyle}
                             >
                                 <Text weight="bold" color="brand">Cari tahu tentang kami{" "}
@@ -165,7 +169,9 @@ class Home extends React.PureComponent{
                                 <Heading margin="none" level="2">Model Dengan Akurasi 80%+</Heading>
                             </Grommet>
                         </Box>
-                        <Box>
+                        <Box
+                            gap = "14px"
+                        >
                             <Paragraph
                                 margin="0"
                                 responsive
@@ -174,10 +180,10 @@ class Home extends React.PureComponent{
                                 Aplikasi ini menggunakan 12 fitur yang dapat digunakan untuk memprediksi gagal jantung yang membawa kematian, dan model prediksi mempunyai akurasi hingga lebih dari 80%.
                             </Paragraph>
                             <Link
-                                to="/about"
+                                to="/aplikasi"
                                 style={linkStyle}
                             >
-                                <Text weight="bold" color="brand">Cari tahu tentang kami{" "}
+                                <Text weight="bold" color="brand">Coba aplikasi{" "}
                                 <LinkNext color="black" size="small"/></Text>
                             </Link>
                         </Box>

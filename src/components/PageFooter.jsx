@@ -18,12 +18,14 @@ class PageFooter extends React.Component{
         return(
     
             <Box
+                margin={{top:'64px'}}
+                flex="grow"
                 background={{color:"#333"}}
-                height="300px"
+                height={{min:"300px"}}
             >
                 <Box
                     justify="between"
-                    direction="row"
+                    direction="row-responsive"
                     flex="grow"
                     gap="40px"
                     margin={{horizontal:'40px', vertical:'64px'}}
@@ -58,13 +60,18 @@ class PageFooter extends React.Component{
                        <Paragraph
                             margin="0"
                             responsive
-                            textAlign="end"
+                            textAlign="start"
                        >
                             Segala informasi pada aplikasi ini tidak dapat dijadikan sebagai diagnosis/rujukan penyakit. Diperlukan pemeriksaan dokter ahli untuk mendiagnosis penyakit.
                             <Paragraph></Paragraph>                            
-                            <Grommet theme={secondFont}><Paragraph  margin="none" textAlign="end" color="dark-3">Copyright © 2021</Paragraph></Grommet>
                        </Paragraph>
                     </Box>
+                </Box>
+                <Box
+                align="end"
+                margin="16px"
+                >
+                <Grommet theme={secondFont}><Paragraph  margin="none" textAlign="end" color="dark-3">Copyright © 2021</Paragraph></Grommet>
                 </Box>
             </Box>
         );

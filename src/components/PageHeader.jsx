@@ -14,6 +14,7 @@ const secondFont = {
   };
 
 const linkStyle = {
+    fontSize: "18px",
     textDecoration: "none",
     color: "black"
 };
@@ -51,14 +52,14 @@ class PageHeader extends React.PureComponent{
                             gap="40px"
                             margin={{vertical: '22px'}}
                         >
-                            <Box align="center" width="120px">
+                            <Box align="center" width="140px">
                                 <Link to="/" style={linkStyle}>Beranda</Link>{" "}
                             </Box>
-                            <Box align="center" width="120px">
+                            <Box align="center" width="140px">
                                 <Link to="/" style={linkStyle}>Aplikasi</Link>{" "}
                             </Box>
-                            <Box align="center" width="180px">
-                                <Link to="/about" style={linkStyle}>Tentang Kami</Link>{" "}
+                            <Box align="center" width="140px">
+                                <Link to="/tentang-kami" style={linkStyle}>Tentang Kami</Link>{" "}
                             </Box>
                         </Box>
                     </Grommet>
