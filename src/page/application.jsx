@@ -3,8 +3,26 @@ import Page from '../components/page';
 import Loadable from 'react-loadable';
 import Helmet from 'react-helmet';
 import {Upload} from 'grommet-icons';
-import { Box, Button, Heading, Text, ThemeContext } from 'grommet';
+import { Box, Button, Heading, Text, ThemeContext, Grommet } from 'grommet';
 
+const bg = {
+    global: {
+      focus: {
+        outline: {
+          color: 'transparent',
+        },
+      },
+      colors: {
+        brand: '#0284c2',
+        background: {
+          light: '#F5F5F5',
+          dark: '#333333',
+        },
+      }
+    },
+  };
+
+  
 const Loading = () => <div>loading...</div>
 const FormPage = Loadable({
     loader:() => import('../components/InputForm'),
@@ -39,83 +57,84 @@ class application extends React.Component{
     render(){
         
         return(
-            <ThemeContext.Extend 
-            value={
-                {button:{
-                    size:{
-                        large:{
-                            pad:{
-                                vertical:"32px",
-                                horizontal:"0px"
-                            },
-                            border:{
-                                radius:"5px"
+            <Grommet theme={bg}>
+                <ThemeContext.Extend 
+                value={{
+                    button:{
+                        size:{
+                            large:{
+                                pad:{
+                                    vertical:"32px",
+                                    horizontal:"0px"
+                                },
+                                border:{
+                                    radius:"5px"
+                                }
                             }
                         }
-                    }
-                }}
-            }>
-                <Page>
-                    <Helmet>
-                        <meta name="viewport" content="width=device-width, user-scalable=no" />
-                        <title>Aplikasi | 4PHF</title>
-                    </Helmet>
-                    <Box
-                        margin={{horizontal:"40px"}}
-                        flex="grow"
-                        direction="column"
-                        gap="64px"
-                    >
+                    }}
+                }>
+                    <Page>
+                        <Helmet>
+                            <meta name="viewport" content="width=device-width, user-scalable=no" />
+                            <title>Aplikasi | 4PHF</title>
+                        </Helmet>
                         <Box
-                            fill='vertical'
+                            margin={{horizontal:"40px"}}
+                            flex="grow"
+                            direction="column"
+                            gap="64px"
                         >
-                            <Heading
-                                level="2"
-                            >
-                                Aplikasi
-                            </Heading>
-                            <Text>
-                                Aplikasi ini menggunakan 12 fitur yang dapat digunakan untuk memprediksi gagal jantung yang membawa kematian, dan model prediksi mempunyai akurasi hingga lebih dari 80%.
-                            </Text>
-                        </Box>
-                        <Box
-                            align='center'
-                        >
-                        {this.state.isFormShown? 
-                            this.state.isInputFileForm?
-                                <FileInputPage changeForm={this.updateInputTypeState} showForm={this.updateShowState}/>
-                                :
-                                <FormPage changeForm={this.updateInputTypeState} showForm={this.updateShowState}/>
-                            :
                             <Box
-                                margin={{horizontal:"420px"}}
-                                width={{min:'240px', max:'400px'}}
-                                gap='64px'
+                                fill='vertical'
                             >
-                                <Button 
-                                    icon={<Upload/>}
-                                    hoverIndicator={{color:"#0458B8"}}
-                                    color="#0475f7"
-                                    primary
-                                    size="large"
-                                    label="Upload File"
-                                    onClick={()=>this.setState({isFormShown:true, isInputFileForm:true})}
-                                />
-                                <Text alignSelf='center'>atau</Text>
-                                <Button 
-                                    label="Isi Form" 
-                                    size="large"
-                                    onClick={()=>this.setState({isFormShown:true, isInputFileForm:false})}
-                                />
+                                <Heading
+                                    level="2"
+                                >
+                                    Aplikasi
+                                </Heading>
+                                <Text>
+                                    Aplikasi ini menggunakan 12 fitur yang dapat digunakan untuk memprediksi gagal jantung yang membawa kematian, dan model prediksi mempunyai akurasi hingga lebih dari 80%.
+                                </Text>
                             </Box>
-                        }    
+                            <Box
+                                align='center'
+                            >
+                            {this.state.isFormShown? 
+                                this.state.isInputFileForm?
+                                    <FileInputPage changeForm={this.updateInputTypeState} showForm={this.updateShowState}/>
+                                    :
+                                    <FormPage changeForm={this.updateInputTypeState} showForm={this.updateShowState}/>
+                                :
+                                <Box
+                                    margin={{horizontal:"420px"}}
+                                    width={{min:'240px', max:'400px'}}
+                                    gap='64px'
+                                >
+                                    <Button 
+                                        icon={<Upload/>}
+                                        hoverIndicator={{color:"#0458B8"}}
+                                        color="#0475f7"
+                                        primary
+                                        size="large"
+                                        label="Upload File"
+                                        onClick={()=>this.setState({isFormShown:true, isInputFileForm:true})}
+                                    />
+                                    <Text alignSelf='center'>atau</Text>
+                                    <Button 
+                                        label="Isi Form" 
+                                        size="large"
+                                        onClick={()=>this.setState({isFormShown:true, isInputFileForm:false})}
+                                    />
+                                </Box>
+                            }    
+                            </Box>
                         </Box>
-                    </Box>
-                </Page>
-            </ThemeContext.Extend>
+                    </Page>
+                </ThemeContext.Extend>
+            </Grommet>
         );
     }
-    
 }
 
 

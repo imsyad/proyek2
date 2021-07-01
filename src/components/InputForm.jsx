@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
+import Form from './Form';
 
 class InputForm extends React.PureComponent{
 
@@ -26,6 +27,27 @@ class InputForm extends React.PureComponent{
                         plain
                         onClick={()=>this.props.showForm(false)}
                     />
+                </Box>
+
+                <Box 
+                    alignSelf="center"
+                    justify="center"
+                    width='600px'
+                    height="1px"
+                    background="black"
+                    align="center"
+                    margin={{top:'40px'}}
+                />
+
+                <Box 
+                    alignSelf='center'
+                    justify="center"
+                    width="850px"
+                    align="center"
+                    margin={{bottom:'40px', top:'40px'}}
+                >
+
+                <Form/>
                 </Box>
             </Box>
         );
