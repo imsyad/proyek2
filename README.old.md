@@ -1,2 +1,0 @@
-# proyek2
-tes
