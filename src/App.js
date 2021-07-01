@@ -42,7 +42,10 @@ const Application = Loadable({
   loader:() => import('./page/application'),
   loading:() => Loading
 });
-
+const Result = Loadable({
+  loader:() => import('./page/result'),
+  loading:() => Loading
+});
 
 function App() {
   return (
@@ -55,6 +58,7 @@ function App() {
         <Home path="/" />
         <About path="/tentang-kami"/>
         <Application path="/aplikasi" />
+        <Result path="/hasil"/>
       </Router>
     </Grommet>
   );
