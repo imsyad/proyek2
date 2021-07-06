@@ -27,6 +27,24 @@ const linkStyle = {
 
 class Home extends React.PureComponent{
 
+    constructor(props){
+        super(props);
+        this.state={
+            apiResponse:""
+        };
+    }
+
+    // Test call express directly
+    // callAPI(){
+    //     fetch("http://localhost:9000/users")
+    //     .then(res => res.text())
+    //     .then(res => this.setState({apiResponse:res}))
+    //     .catch(err => err);
+    // }
+
+    // componentDidMount(){
+    //     this.callAPI();
+    // }
 
     render(){
         return(
@@ -189,6 +207,9 @@ class Home extends React.PureComponent{
                         </Box>
                     </Box>
                 </Box>
+                <Text>
+                    {this.state.apiResponse}
+                </Text>
             </Page>
         );
     }

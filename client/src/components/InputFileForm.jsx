@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Button, FileInput } from 'grommet';
 import SubmitButton from '../components/SubmitButton';
-import { isNull } from 'lodash';
 
 class FileInputForm extends React.Component{
 
@@ -48,7 +47,6 @@ class FileInputForm extends React.Component{
                         this.setState({isFileExist:true})
                     }
                     for (let i = 0; i < fileList.length; i += 1) {
-                        const file = fileList[i];
                     }
                     }}
                 />

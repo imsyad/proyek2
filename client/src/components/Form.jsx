@@ -2,14 +2,81 @@ import React from 'react';
 import { Box, Heading, TextInput, Text, ThemeContext } from 'grommet';
 import { navigate } from '@reach/router';
 import AnalyzeButton from './AnalyzeButton';
+import Axios from 'axios';
 
-class Form extends React.PureComponent{
 
-    render(){
-        return(
+class Form extends React.PureComponent {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {
+                age: '',
+                anaemia: '',
+                creatinine_phosphokinase: '',
+                diabetes: '',
+                ejection_fraction: '',
+                high_blood_pressure: '',
+                platelets: '',
+                serum_creatinine: '',
+                serum_sodium: '',
+                sex: '',
+                smoking: '',
+                time: '',
+                DEATH_EVENT: ''
+            }
+        }
+    }
+
+    myChangeHandler = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState(prevState => ({ data: { ...prevState.data, [nam]: val } }));
+    }
+
+    onSubmit = (event, {navigate}) => {
+        event.preventDefault();
+
+        const data = {
+            age: this.state.data.age,
+            anaemia: this.state.data.anaemia,
+            creatinine_phosphokinase: this.state.data.creatinine_phosphokinase,
+            diabetes: this.state.data.diabetes,
+            ejection_fraction: this.state.data.ejection_fraction,
+            high_blood_pressure: this.state.data.high_blood_pressure,
+            platelets: this.state.data.platelets,
+            serum_creatinine: this.state.data.serum_creatinine,
+            serum_sodium: this.state.data.serum_sodium,
+            sex: this.state.data.sex,
+            smoking: this.state.data.smoking,
+            time: this.state.data.time,
+            DEATH_EVENT: ''
+        }
+
+        // ========================================= //
+        // ERROR BAGIAN INI                          //
+        // KURANG TAU CARA SEND KE EXPRESS NYA       //
+        // TERUS KALAU GET DEATH_EVENT NYA NTAR GIMANA?//
+        // HASIL INPUT DISINI HARUS DI PASSING KE /hasil //
+
+        Axios.post("https://localhost:9000/", data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        // ======================================== //
+    }
+
+
+    render() {
+
+        return (
             <ThemeContext.Extend
-                value={{ 
-                    global: { 
+                value={{
+                    global: {
                         colors: {
                             border: {
                                 light: 'transparent',
@@ -20,8 +87,8 @@ class Form extends React.PureComponent{
                             border: {
                                 radius: '0px',
                             }
-                        } 
-                    },  
+                        }
+                    },
                     textInput: {
                         extend: () => `
                           background: #FFF;
@@ -43,7 +110,7 @@ class Form extends React.PureComponent{
                         alignSelf='center'
                         pad='20px'
                         gap='20px'
-                        margin={{bottom:'50px'}}
+                        margin={{ bottom: '50px' }}
                         width='600px'
                         round='xsmall'
                         border={{
@@ -56,21 +123,18 @@ class Form extends React.PureComponent{
                         <Heading margin='0'>Umum</Heading>
                         <Text>Umur (Tahun)</Text>
                         <TextInput
-
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='age'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Jenis Kelamin (Pria/Wanita)</Text>
                         <TextInput
-                
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='sex'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Merokok (Iya/Tidak)</Text>
                         <TextInput
-                
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='smoking'
+                            onChange={this.myChangeHandler}
                         />
                     </Box>
 
@@ -78,7 +142,7 @@ class Form extends React.PureComponent{
                         alignSelf='center'
                         pad='20px'
                         gap='20px'
-                        margin={{bottom:'50px'}}
+                        margin={{ bottom: '50px' }}
                         width='600px'
                         round='xsmall'
                         border={{
@@ -90,18 +154,18 @@ class Form extends React.PureComponent{
                         <Heading margin='0'>Penyakit</Heading>
                         <Text>Penderita Anemia (Iya/Tidak)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='anaemia'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Penderita Hipertensi (Iya/Tidak)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='high_blood_pressure'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Penderita Diabetes (Iya/Tidak)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='diabetes'
+                            onChange={this.myChangeHandler}
                         />
                     </Box>
 
@@ -109,7 +173,7 @@ class Form extends React.PureComponent{
                         alignSelf='center'
                         pad='20px'
                         gap='20px'
-                        margin={{bottom:'50px'}}
+                        margin={{ bottom: '50px' }}
                         width='600px'
                         round='xsmall'
                         border={{
@@ -121,37 +185,37 @@ class Form extends React.PureComponent{
                         <Heading margin='0'>Data Lainnya</Heading>
                         <Text>Tingkat enzim CPK dalam darah (mcg/L)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='creatinine_phosphokinase'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Fraksi Ejeksi (Persentase)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='ejection_fraction'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Trombosit dalam darah (kiloplatelet/mL)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='platelets'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Tingkat kreatinin serum dalam darah (mg/dL)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='serum_creatinine'
+                            onChange={this.myChangeHandler}
                         />
-                        <Text>Kadar natrium serim dalam darah (mEq/L)</Text>
+                        <Text>Kadar natrium serum dalam darah (mEq/L)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='serum_sodium'
+                            onChange={this.myChangeHandler}
                         />
                         <Text>Periode tidak lanjut (hari)</Text>
                         <TextInput
-                        // value={value}
-                        // onChange={event => setValue(event.target.value)}
+                            name='time'
+                            onChange={this.myChangeHandler}
                         />
                     </Box>
 
-                    <AnalyzeButton onClick={()=>{navigate('/aplikasi')}} justify="center" fill="horizontal" label="Mulai Analisis!"/>
+                    <AnalyzeButton type='submit' onClick={() => {this.onSubmit.bind(navigate('/hasil'))}} justify="center" fill="horizontal" label="Mulai Analisis!" />
 
                 </Box>
             </ThemeContext.Extend>
