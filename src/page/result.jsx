@@ -17,7 +17,7 @@ class Result extends React.PureComponent {
   }
 
   componentDidMount() {
-    Axios.post(`http://localhost:3000`, JSON.stringify(this.state.data)).then(
+    Axios.post(`http://localhost:9000`, JSON.stringify(this.state.data)).then(
       (res) => {
         this.setState({
           hasil:
@@ -63,26 +63,26 @@ class Result extends React.PureComponent {
                 ]}
                 data={[
                   { data: "Usia", value: this.state.data.age },
-                  { data: "Anemia", value: this.state.anaemia },
+                  { data: "Anemia", value: this.state.data.anaemia },
                   {
                     data: "Tekanan Darah",
-                    value: this.state.high_blood_pressure
+                    value: this.state.data.high_blood_pressure
                   },
-                  { data: "cpk", value: this.state.creatinine_phosphokinase },
-                  { data: "Diabetes", value: this.state.diabetes },
+                  { data: "cpk", value: this.state.data.creatinine_phosphokinase },
+                  { data: "Diabetes", value: this.state.data.diabetes },
                   {
                     data: "Ejection Fraction",
-                    value: this.state.ejection_fraction
+                    value: this.state.data.ejection_fraction
                   },
-                  { data: "Platates", value: this.state.platelets },
-                  { data: "Jenis Kelamin", value: this.state.sex },
+                  { data: "Platates", value: this.state.data.platelets },
+                  { data: "Jenis Kelamin", value: this.state.data.sex },
                   {
                     data: "Serum Creatinine",
-                    value: this.state.serum_creatinine
+                    value: this.state.data.serum_creatinine
                   },
-                  { data: "Serum Sodium", value: this.state.serum_sodium },
-                  { data: "Merokok", value: this.state.smoking },
-                  { data: "Waktu", value: this.state.time }
+                  { data: "Serum Sodium", value: this.state.data.serum_sodium },
+                  { data: "Merokok", value: this.state.data.smoking },
+                  { data: "Waktu", value: this.state.data.time }
                 ]}
                 resizeable={false}
               />
