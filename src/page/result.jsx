@@ -23,7 +23,7 @@ class Result extends React.PureComponent {
           hasil:
             "Berikut adalah hasil analisis kami. Dan hasilnya " +
             (res.data.death_prob[0][0] * 100).toFixed(2) +
-            "% Anda mengalami penyakit jantung."
+            "% resiko kematian pada diri Anda (Jika >=50% resiko kematian tinggi, jika <50% resiko kematian rendah)."
         });
       }
     );
