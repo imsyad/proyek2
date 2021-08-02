@@ -46,8 +46,8 @@ router
       key.forEach((item) => {
         if (item === "ef_sc") {
           user_input.push(body.ejection_fraction * body.serum_creatinine);
-        } else if (item === "ejection_fraction") {
-          user_input.push(body.ejection_fraction * body.ejection_fraction);
+        } else if (item === "serum_creatinine") {
+          user_input.push(body.serum_creatinine * body.serum_creatinine);
         } else {
           user_input.push(body[item]);
         }
